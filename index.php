@@ -1,46 +1,5 @@
 <?php include "./inc/header.php"; ?>
 
-<?php include "./config/config.php"; ?>
-<?php include "./lib/Database.php"; ?>
-<?php
-
-    $res = new Database();
-    $result = $res->link->query("select * from general")->fetch_assoc();
-    var_dump($result);
-?>
-
-
-    <!-- Start About Area -->
-	<section class="about-area section-padding">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6">
-					<div class="about-img">
-						<img src="assets/img/about.jpg" alt="about">
-					</div>
-				</div>
-				<div class="col-lg-6 align-self-center">
-					<div class="about-content">
-						<h4>Mirta Akins</h4>
-						<h2>A professional web designer & developer</h2>
-						<p>I design and develop services for customers specializing creating stylish, modern websites, web services and online stores. My passion is to design digital user experiences through My passion is to design digital user experiences through meaningful interactions. Check out my Portfolio</p>
-						<p>I design and develop services for customers specializing creating stylish, modern websites, web services and online stores.</p>
-						<div class="about-social">
-							<span><a href="#"><i class="fab fa-facebook-f"></i></a></span>
-							<span><a href="#"><i class="fab fa-twitter"></i></a></span>
-							<span><a href="#"><i class="fab fa-instagram"></i></a></span>
-							<span><a href="#"><i class="fab fa-pinterest-p"></i></a></span>
-							<span><a href="#"><i class="fab fa-dribbble"></i></a></span>
-						</div>
-						<div class="about-btn">
-							<a class="button-1" href="contact.html">Hire Me <span></span></a>
-							<a class="button-1 button-2" href="contact.html">Learn More <span></span></a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
 	<!-- End About Area -->
 	<!-- Start Services Area -->
 	<section class="section-padding-2 section-bg">
@@ -56,90 +15,26 @@
 			</div>
 			<!-- Services Content -->
 			<div class="row">
-				<!-- Services Single -->
+                <?php
+                $i = 0;
+                    $services = $db->link->query('select * from services');
+                    while($service = $services->fetch_assoc()) {
+                        $i++;
+                ?>
 				<div class="col-lg-4 col-md-6 mb-30">
 					<div class="services-box">
 						<div class="count">
-							<span>01</span>
+							<span><?php echo $i; ?></span>
 						</div>
 						<div class="icon">
-							<i class="fas fa-laptop-code"></i>
+							<i class="<?php echo $service['image']; ?>"></i>
 						</div>
-						<h2>Web Design</h2>
-						<p>In nisi tortor, consequat eu semper ut, consequat in massa. Maecenas at odio a felis commodo pulvinar quis eu neque.</p>
+						<h2><?php echo $service['title']; ?></h2>
+						<p><?php echo $service['description']; ?></p>
 						<a class="read_details" href="services-details.html">View Details</a>
 					</div>
 				</div>
-				<!-- Services Single -->
-				<div class="col-lg-4 col-md-6 mb-30">
-					<div class="services-box">
-						<div class="count">
-							<span>02</span>
-						</div>
-						<div class="icon">
-							<i class="fas fa-layer-group"></i>
-						</div>
-						<h2>Web Development</h2>
-						<p>In nisi tortor, consequat eu semper ut, consequat in massa. Maecenas at odio a felis commodo pulvinar quis eu neque.</p>
-						<a class="read_details" href="services-details.html">View Details</a>
-					</div>
-				</div>
-				<!-- Services Single -->
-				<div class="col-lg-4 col-md-6 mb-30">
-					<div class="services-box">
-						<div class="count">
-							<span>03</span>
-						</div>
-						<div class="icon">
-							<i class="fas fa-pencil-ruler"></i>
-						</div>
-						<h2>UI/UX Design</h2>
-						<p>In nisi tortor, consequat eu semper ut, consequat in massa. Maecenas at odio a felis commodo pulvinar quis eu neque.</p>
-						<a class="read_details" href="services-details.html">View Details</a>
-					</div>
-				</div>
-				<!-- Services Single -->
-				<div class="col-lg-4 col-md-6 mb-30">
-					<div class="services-box">
-						<div class="count">
-							<span>04</span>
-						</div>
-						<div class="icon">
-							<i class="fab fa-sketch"></i>
-						</div>
-						<h2>App Design &amp; Develop</h2>
-						<p>In nisi tortor, consequat eu semper ut, consequat in massa. Maecenas at odio a felis commodo pulvinar quis eu neque.</p>
-						<a class="read_details" href="services-details.html">View Details</a>
-					</div>
-				</div>
-				<!-- Services Single -->
-				<div class="col-lg-4 col-md-6 mb-30">
-					<div class="services-box">
-						<div class="count">
-							<span>05</span>
-						</div>
-						<div class="icon">
-							<i class="fas fa-palette"></i>
-						</div>
-						<h2>Graphic Design</h2>
-						<p>In nisi tortor, consequat eu semper ut, consequat in massa. Maecenas at odio a felis commodo pulvinar quis eu neque.</p>
-						<a class="read_details" href="services-details.html">View Details</a>
-					</div>
-				</div>
-				<!-- Services Single -->
-				<div class="col-lg-4 col-md-6 mb-30">
-					<div class="services-box">
-						<div class="count">
-							<span>06</span>
-						</div>
-						<div class="icon">
-							<i class="fas fa-bullhorn"></i>
-						</div>
-						<h2>SEO Marketing</h2>
-						<p>In nisi tortor, consequat eu semper ut, consequat in massa. Maecenas at odio a felis commodo pulvinar quis eu neque.</p>
-						<a class="read_details" href="services-details.html">View Details</a>
-					</div>
-				</div>
+                <?php  } ?>
 			</div>
 		</div>
 	</section>

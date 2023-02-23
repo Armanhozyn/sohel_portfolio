@@ -1,3 +1,14 @@
+<?php include "./config/config.php"; ?>
+<?php include "./lib/Database.php"; ?>
+
+<?php
+    $db = new Database();
+    $result = $db->link->query('select * from general');
+    $result = $result->fetch_assoc();
+
+
+?>
+
 <!DOCTYPE html>
 <html  class="no-js" lang="en">
 
@@ -6,7 +17,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>CWT - Personal Portfolio Website HTML5 Template</title>
+	<title><?php echo $result['logo']; ?> - Personal Portfolio Website HTML5 Template</title>
 	<link rel="icon" href="assets/img/icon.png" type="image/gif" sizes="16x16">
 	<link rel="icon" href="assets/img/icon.png" type="image/gif" sizes="18x18">
 	<link rel="icon" href="assets/img/icon.png" type="image/gif" sizes="20x20">
@@ -39,7 +50,8 @@
 				<div class="col-lg-2 align-self-center">
 					<div class="logo">
 						<a href="index.html">
-							<img src="assets/img/logo.png" alt="logo">
+							<!-- <img src="assets/img/logo.png" alt="logo"> -->
+                            <span><?php echo  $result['logo']; ?></span>
 						</a>
 					</div>
 					<div class="mobile-bar">
@@ -172,9 +184,9 @@
 				<!-- Content -->
 				<div class="col-lg-6 align-self-center order-lg-first order-last">
 					<div class="hero-caption">
-						<h4>Hello, my name is Mirta Akins</h4>
-						<h2>I'm Professional Web Designer & <span>Wordpress Developer</span></h2>
-						<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+						<h4><?php echo $result['intro']; ?></h4>
+						<h2><?php echo $result['title']; ?></h2>
+						<p><?php echo $result['description']; ?></p>
 						<div class="h_btn mt-30">
 							<a class="button-1" href="#">Dwonload Cv<span></span></a>
 							<div class="video-btn">

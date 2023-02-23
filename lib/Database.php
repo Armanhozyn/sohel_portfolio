@@ -1,5 +1,4 @@
 <?php
-
     class Database{
         private $host = HOST;
         private $user = USER;
@@ -23,14 +22,9 @@
 
     }
 
-    $db = new Database();
 
-    $result = $db->link->query("select * from general");
-    $result = $result->fetch_assoc();
-
-    var_dump($result);
-
-
-
+    function hello(){
+        echo HOST;
+    }
 
 ?>

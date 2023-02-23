@@ -14,9 +14,9 @@
 							</div>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum dui in suscipit congue.</p>
 							<div class="footer_social">
-								<span><a href="#"><i class="fab fa-facebook-f"></i></a></span>
-								<span><a href="#"><i class="fab fa-twitter"></i></a></span>
-								<span><a href="#"><i class="fab fa-instagram"></i></a></span>
+								<span><a href="<?php echo $result['fb_link']; ?>"><i class="fab fa-facebook-f"></i></a></span>
+								<span><a href="<?php echo $result['twitter_link']; ?>"><i class="fab fa-twitter"></i></a></span>
+								<!-- <span><a href="#"><i class="fab fa-instagram"></i></a></span> -->
 							</div>
 						</div>
 					</div>
@@ -91,7 +91,7 @@
 				<div class="row">
 					<div class="col-lg-12 text-center">
 						<div class="f_copy_text">
-							<p>&copy; 2021 <strong>CWT</strong>, All Rights Reserved. With Love by <a href="#">CodexUnicTheme</a></p>
+							<p><?php echo $result['footer_text']; ?></p>
 						</div>
 					</div>
 				</div>
