@@ -22,9 +22,4 @@
 
     }
 
-
-    function hello(){
-        echo HOST;
-    }
-
 ?>

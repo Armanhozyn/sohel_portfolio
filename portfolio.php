@@ -1,13 +1,5 @@
 <?php include "./inc/header.php"; ?>
 
-<?php include "./config/config.php"; ?>
-<?php include "./lib/Database.php"; ?>
-<?php
-
-    $res = new Database();
-    $result = $res->link->query("select * from general")->fetch_assoc();
-    var_dump($result);
-?>
 	<!-- Start Portfolio Area -->
 	<div class="section-padding">
 		<div class="container">
