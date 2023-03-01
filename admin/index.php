@@ -1,8 +1,6 @@
 <?php
-session_start();
-    if(!isset($_SESSION['login']) && $_SESSION['login'] != true){
-        header("Location: login.php");
-    }
+    include "./../lib/Session.php";
+    Session::checkSession();
 ?>
 
 
@@ -1025,8 +1023,8 @@ session_start();
                     <li class="nav-item dropdown user-profile-dropdown d-flex align-items-center">
                         <a href="javascript:void(0);" class="nav-link dropdown-toggle user" id="userProfileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                             <div class="d-flex flex-column text-right">
-                                <span class="font-12 strong lh-normal"><?php echo $_SESSION['username']; ?></span>
-                                <span class="font-11 lighter lh-normal"><?php echo $_SESSION['email']; ?></span>
+                                <span class="font-12 strong lh-normal"><?php echo Session::get('username'); ?></span>
+                                <span class="font-11 lighter lh-normal"><?php echo Session::get('email'); ?></span>
                             </div>
                             <img src="assets/img/profile-16.jpg" alt="avatar">
                         </a>

@@ -14,6 +14,8 @@
 
         private function connectDB(){
             $this->link = new mysqli($this->host,$this->user,$this->password,$this->database);
+
+
             if($this->link->connect_errno > 0){
                 echo "Something went wrong".$this->link->connect_error;
                 die();

@@ -1,10 +1,10 @@
 <?php
-    session_start();
-    if(isset($_SESSION['login']) && $_SESSION['login'] == true){
-        header("Location: index.php");
-    }
     include "./../config/config.php";
     include "./../lib/Database.php";
+    include "./../lib/Session.php";
+
+    Session::checkLogin();
+
     $db = new Database();
     $error = "";
     if($_SERVER['REQUEST_METHOD'] == "POST"){
@@ -13,9 +13,9 @@
         $result  = $db->link->query("select * from user where email = '$email' and password = '$password'");
         if($result->num_rows > 0){
             $result = $result->fetch_assoc();
-            $_SESSION['login'] = true;
-            $_SESSION['username'] = $result['username'];
-            $_SESSION['email'] = $result['email'];
+            Session::set('login',true);
+            Session::set('username',$result['username']);
+            Session::set('email',$result['email']);
             header("Location: index.php");
         }else{
             $error = "login failed";
