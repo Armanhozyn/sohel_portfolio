@@ -1,3 +1,4 @@
+
 <div class="header-container fixed-top">
             <header class="header navbar navbar-expand-sm">
                 <ul class="navbar-item flex-row ml-md-0 ml-auto">
@@ -328,7 +329,7 @@
                                                     <i class="las la-sign-out-alt font-20"></i>
                                                 </div>
                                                 <div class="media-content ml-3">
-                                                    <h6 class="font-13 mb-0 strong ">Logout</h6>
+                                                    <h6 class="font-13 mb-0 strong "><a href="?logout=1">Logout</a> </h6>
                                                 </div>
                                             </div>
                                         </a>
