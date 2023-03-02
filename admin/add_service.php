@@ -4,6 +4,7 @@
     $inserted_row = "";
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $service = new Services();
+        $title = $_POST['title'];
         $inserted_row = $service->add_service($_POST,$_FILES);
     }
 
