@@ -29,7 +29,7 @@
 							<span><?php echo $i; ?></span>
 						</div>
 						<div class="icon">
-							<i class="<?php echo $service['image']; ?>"></i>
+                            <img src="admin/<?php echo $service['image']; ?>" class="img-fluid" width="200px"alt="">
 						</div>
 						<h2><?php echo $service['title']; ?></h2>
 						<p><?php echo $service['description']; ?></p>

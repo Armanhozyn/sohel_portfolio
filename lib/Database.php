@@ -22,6 +22,15 @@
             }
         }
 
+        public function insert($query){
+            $insert_row = $this->link->query($query);
+            if($insert_row){
+                return $insert_row;
+            }else{
+                return false;
+            }
+        }
+
     }
 
 ?>
