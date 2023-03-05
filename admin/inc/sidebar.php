@@ -28,6 +28,23 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="menu">
+                        <a href="#dashboard" data-active="true" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">
+                            <div class="">
+                                <i class="las la-home"></i>
+                                <span>Category</span>
+                            </div>
+                            <div>
+                                <i class="las la-angle-right sidemenu-right-icon"></i>
+                            </div>
+                        </a>
+                        <ul class="collapse submenu list-unstyled collapse show" id="dashboard" data-parent="#accordionExample">
+                            <li class="active">
+                                <a data-active="true" href="add_category.php"> Add Category </a>
+                                <a data-active="true" href="servicelist.php"> Service List </a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
         </div>

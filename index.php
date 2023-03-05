@@ -19,7 +19,7 @@
 			<div class="row">
                 <?php
                 $i = 0;
-                    $services = $db->link->query('select * from services');
+                    $services = $db->link->query('select c.*,s.* from categories as c , services as s where s.cat_id = c.id');
                     while($service = $services->fetch_assoc()) {
                         $i++;
                 ?>
@@ -32,7 +32,7 @@
                             <img src="admin/<?php echo $service['image']; ?>" class="img-fluid" width="200px"alt="">
 						</div>
 						<h2><?php echo $service['title']; ?></h2>
-						<p><?php echo $service['description']; ?></p>
+						<p><?php echo $service['category_name']; ?></p>
 						<a class="read_details" href="services-details.html">View Details</a>
 					</div>
 				</div>

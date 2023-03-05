@@ -1,11 +1,10 @@
 <?php include "./inc/header.php" ?>
-<?php  include "../classes/Services.php"; ?>
+<?php  include "../classes/Category.php"; ?>
 <?php
     $inserted_row = "";
-    $service = new Services();
     if($_SERVER["REQUEST_METHOD"] == "POST"){
-        $title = $_POST['title'];
-        $inserted_row = $service->add_service($_POST,$_FILES);
+        $cat = new Category();
+        $inserted_row = $cat->add_category($_POST);
     }
 
 
@@ -72,34 +71,8 @@
                                                         <div class="col-lg-12 col-md-12 col-sm-12">
 
                                                                 <div class="form-group mb-2">
-                                                                    <label class="col-form-label">Title</label>
-                                                                    <input type="text" class="form-control" id="title" name="title" required >
-                                                                    <!-- <span class="form-text text-muted">Please enter your full name</span> -->
-                                                                </div>
-                                                                <div class="form-group mb-2">
-                                                                    <label class="col-form-label">Subtitle</label>
-                                                                    <input type="text" class="form-control" id="subtitle" name="subtitle" required >
-                                                                    <!-- <span class="form-text text-muted">Please enter your full name</span> -->
-                                                                </div>
-                                                                <div class="form-group mb-2">
-                                                                    <label class="col-form-label">Description</label>
-                                                                    <input type="text" class="form-control" id="description" name="description" required >
-                                                                    <!-- <span class="form-text text-muted">Please enter your full name</span> -->
-                                                                </div>
-                                                                <div class="form-group mb-2">
-                                                                    <?php
-                                                                        $categories = $service->getAllCategory();
-                                                                    ?>
-                                                                <select class="form-control" aria-label="Default select example" name="cat_id">
-                                                                         <option selected>Open this select menu</option>
-                                                                         <?php while($cat = $categories->fetch_assoc()): ?>
-                                                                        <option value="<?php echo $cat['id']; ?>"><?php echo $cat['category_name']; ?></option>
-                                                                        <?php endwhile; ?>
-                                                                </select>
-                                                                </div>
-                                                                <div class="form-group mb-2">
-                                                                    <label class="col-form-label">Image</label>
-                                                                    <input type="file" class="form-control" id="image" name="image" required >
+                                                                    <label class="col-form-label">Category Name</label>
+                                                                    <input type="text" class="form-control" id="category_name" name="category_name" required >
                                                                     <!-- <span class="form-text text-muted">Please enter your full name</span> -->
                                                                 </div>
                                                         </div>

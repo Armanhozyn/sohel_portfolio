@@ -17,6 +17,7 @@
             $title = $this->fm->validate($data['title']);
             $subtitle = $this->fm->validate($data['subtitle']);
             $description = $this->fm->validate($data['description']);
+            $cat_id = $this->fm->validate($data['cat_id']);
 
             $file_name = $files['image']['name'];
             $file_size = $files['image']['size'];
@@ -26,7 +27,7 @@
 
             move_uploaded_file($file_temp,$upload_image);
 
-            $sql = "insert into services(title,subtitle,description,image) values('$title','$subtitle','$description','$upload_image')";
+            $sql = "insert into services(title,subtitle,description,image,cat_id) values('$title','$subtitle','$description','$upload_image',$cat_id)";
             $insert_row = $this->db->insert($sql);
             if($insert_row){
                 return "Inserted Successfully";
@@ -34,6 +35,12 @@
                 return "Something Went Wrong";
             }
 
+        }
+
+        public function getAllCategory(){
+            $sql = "select * from categories order by id desc";
+            $result = $this->db->select($sql);
+            return $result;
         }
 
     }
